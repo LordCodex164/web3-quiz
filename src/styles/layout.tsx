@@ -8,8 +8,6 @@ export const LayoutStyles = styled.main<IBgTheme>`
          overflow-x: hidden;
          background: rgba(86, 93, 234, 0.7);
          position: relative;
-         border: 5px solid green;
-
     .first,
     .second{
         position: absolute;
