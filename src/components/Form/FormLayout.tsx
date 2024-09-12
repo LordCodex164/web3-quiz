@@ -1,4 +1,4 @@
-import { CodeStyles, FormStyles } from '../../styles/main'
+import { CodeStyles, FormStyles, ResultStyles } from '../../styles/main'
 import Intro from '../Intro'
 import Code from '../Code/Code'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
@@ -22,7 +22,10 @@ const FormLayout = () => {
     <FormStyles>
 
       {hasEnded ? (
-       <img src='./result.svg'/>
+      <ResultStyles>
+        <img className='' src='./result.svg'/>
+      </ResultStyles>
+       
       )
       : (
         <CodeStyles color={bgTheme.color as string}>

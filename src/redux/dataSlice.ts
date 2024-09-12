@@ -78,7 +78,7 @@ const initialState: IDataSlice = {
     timerState: 10,
     playQuizBgSound: false,
     playCorrectAnswerSound: false,
-    playWrongAnswerSound: true,
+    playWrongAnswerSound: false,
     selectedOption: null,
     questions: Questions,
     selectedQuestionAnswerId: 0,
@@ -210,6 +210,12 @@ export const dataSlice = createSlice({
   },
   setHasFinishedQuestions(state, action) {
     state.hasFinishedQuestions = action.payload;
+  },
+  setCorrectAnswerSound(state, action) {
+    state.playCorrectAnswerSound = action.payload;
+  },
+  setWrongAnswerSound(state, action) {
+    state.playWrongAnswerSound = action.payload;
   }
  }
     });
@@ -227,7 +233,9 @@ export const {
   resetQuizScore,
   setSelectedOption,
   incrementPlayerScore,
-  setHasFinishedQuestions
+  setHasFinishedQuestions,
+  setCorrectAnswerSound,
+  setWrongAnswerSound
 } = 
   dataSlice.actions;
 export const dataSelector = (state: RootState) => state.data;

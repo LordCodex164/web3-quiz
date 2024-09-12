@@ -4,11 +4,12 @@ import { IBgTheme } from "../types/layout";
 export const LayoutStyles = styled.main<IBgTheme>`
          display: flex;
          justify-content: center;
-         border: 3px solid red;
          min-height: 100vh;
          overflow-x: hidden;
          background: rgba(86, 93, 234, 0.7);
          position: relative;
+         border: 5px solid green;
+
     .first,
     .second{
         position: absolute;

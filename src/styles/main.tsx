@@ -8,13 +8,18 @@ export const MainStyles = styled.main`
     gap: 2rem;
     position: relative;
     z-index: 5;
-    min-width: 35vw;
-    max-width: 340.37px;
+    width: 100%;
+    min-width: 250px;
+    max-width: 584px;
     padding-top: 5em;
    h1{
     font-family: Raleway;
     color: #fff;
     font-size: 2.27em;
+   }
+   @media (max-width: 768px) {
+     margin-left: 5%;
+     margin-right: 5%
    }
 `
 
@@ -23,8 +28,7 @@ export const FormStyles = styled.main`
     position: relative;
     border-radius: 1.5em; 
     min-height: 513.6px;
-    min-width: 534.37px;
-    max-width: 534.37px;
+    width: 100%;
     padding: 2.5rem;
     .adventure{
         position: absolute;
@@ -32,6 +36,7 @@ export const FormStyles = styled.main`
         top: -10%;
         object-fit: fill;
     }
+  
 `
 
 export interface ICodeStyles {
@@ -144,6 +149,11 @@ export const QuestionItemStyles = styled(motion.div).attrs(() => ({
      display: flex;
      justify-content: end;
    }
+   @media (max-width: 768px){
+    h1{
+        font-size: 18px;
+    }
+   }
 `
 
 export interface QuestionItemOptionsStylesProps {
@@ -240,6 +250,9 @@ export const QuestionitemOptionsStyles = styled.main<QuestionItemOptionsStylesPr
         color: #8F94DE;
         align-items: center;
         font-family: DM Sans;
+        @media (max-width: 768px){
+            gap: 1em;
+        }
     }
     span{
         font-size: 24px;
@@ -248,6 +261,16 @@ export const QuestionitemOptionsStyles = styled.main<QuestionItemOptionsStylesPr
     p{
         font-size: 18px;
         font-weight: 500; 
+    }
+    @media (max-width: 768px){
+        span{
+            font-size: 18px;
+            font-style: normal;
+        }
+        p{
+            font-size: 14px;
+            font-style: normal;
+        }
     }
 `
 

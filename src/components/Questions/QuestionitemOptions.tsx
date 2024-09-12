@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { IOption } from "../../Constants/Constants"
-import { dataSelector, incrementPlayerScore, setHasAnswered, setSelectedOption } from "../../redux/dataSlice"
+import { dataSelector, incrementPlayerScore, setHasAnswered, setSelectedOption, setCorrectAnswerSound, setWrongAnswerSound } from "../../redux/dataSlice"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { QuestionitemOptionsStyles } from "../../styles/main"
 
@@ -15,7 +15,6 @@ const QuestionitemOptions = ({option, answer}: QuestionItemOptionsProps) => {
     const [isAnswered, setIsAnswered] = React.useState<boolean>(false)
     const [isCorrect, setIsCorrect] = React.useState<boolean>(false)
     const [isWrong, setIsWrong] = React.useState<boolean>(false)
-    const [isSelected, setIsSelected] = React.useState<boolean>(false)
 
     const {selectedOption, playerScore} = useAppSelector(dataSelector)
 
@@ -54,16 +53,19 @@ const QuestionitemOptions = ({option, answer}: QuestionItemOptionsProps) => {
       if(option.id === selectedOption?.id && option.id !== answer){
       setTimeout(() => {
           setIsWrong(true)
+          dispatch(setWrongAnswerSound(true))
       }, 1000)}
       setTimeout(() => {
         if(option.id === answer){
           setIsCorrect(true)
+          dispatch(setCorrectAnswerSound(true))
         }
-      }, 1500)
-      }
+      }, 1500)}
+      
     if(option.id == selectedOption?.id && option.id === answer){
       setTimeout(() => {
         setIsCorrect(true)
+        dispatch(setCorrectAnswerSound(true))
         incrementPlayerScoreState()
         console.log("state increment")
       }, 1500)
